@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "P0-route-A-direct-scenario",
+    "prompt": "我要催同事交数据，催了两次都说马上，但一直没给，怎么说比较好？",
+    "expected": "识别为催进度场景，信息充分，直接进路径A给出可复制话术，附带1个知识点植入",
+    "priority": "P0"
+  },
+  {
+    "id": 2,
+    "name": "P0-route-B-learning",
+    "prompt": "我想学一下怎么在会议上表达不同意见",
+    "expected": "识别为路径B想学，进入沉浸式学习流程，引用 references/path-b-learning.md",
+    "priority": "P0"
+  },
+  {
+    "id": 3,
+    "name": "P0-route-C-practice",
+    "prompt": "陪我练一下向上级汇报坏消息",
+    "expected": "识别为路径C想练，进入陪练流程，展示场景确认+采集背景，引用 references/path-c-practice.md",
+    "priority": "P0"
+  },
+  {
+    "id": 4,
+    "name": "P0-assessment-entry",
+    "prompt": "测测我的沟通能力",
+    "expected": "进入模块一，静默查询测评API（引用 references/assessment-api.md），有记录则解读，无记录则引导测评",
+    "priority": "P0"
+  },
+  {
+    "id": 5,
+    "name": "P0-ambiguous-intent",
+    "prompt": "沟通",
+    "expected": "意图模糊，展示5选项意图确认菜单（测一测/快速诊断/直接用/想学/陪我练）",
+    "priority": "P0"
+  },
+  {
+    "id": 6,
+    "name": "P1-info-insufficient",
+    "prompt": "被批评了怎么办",
+    "expected": "识别为回应批评场景，信息不足，追问1-2个关键信息（当众还是私下？觉得批评有道理吗？）",
+    "priority": "P1"
+  },
+  {
+    "id": 7,
+    "name": "P1-card-generation",
+    "prompt": "给我看看催办的知识卡片",
+    "expected": "引用 references/card-generation.md 和 scripts/content_query.py card 查询卡片数据（数据源 data/cards.json）",
+    "priority": "P1"
+  },
+  {
+    "id": 8,
+    "name": "P1-error-handling-webfetch",
+    "prompt": "帮我查一下我的测评成绩，我的用户标识是testuser123",
+    "expected": "调用 scripts/db_helper.py query-assessment 查询测评记录，如果失败走兜底方案提示手动回传",
+    "priority": "P1"
+  }
+]
